@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-
 scale=1.0">
-    <title>{{ $pageTitle }}</title>
+    <title></title>
     @vite('resources/sass/app.scss')
 </head>
 
@@ -20,8 +20,12 @@ scale=1.0">
             <form action="{{ route('employees.destroy', ['employee' => $employee->id]) }}" method="POST">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
+                <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                    data-name="{{ $employee->firstname . ' ' . $employee->lastname }}">
+                    <i class="bi-trash"></i>
+                </button>
             </form>
+
         </div>
     </div>
     @vite('resources/js/app.js')
